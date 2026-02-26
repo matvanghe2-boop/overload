@@ -113,12 +113,16 @@
       text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
     }
     .neon-logo-scan {
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 30%;
-      background: linear-gradient(to right, transparent, rgba(0,212,255,0.6), transparent);
-      animation: neonLoadScan 1.8s linear infinite;
-      pointer-events: none;
+    position: absolute;
+    top: 30%;
+    bottom: 30%;
+    left: 25%;
+    right: 25%;
+    width: 20%;
+    background: linear-gradient(to right, transparent, rgba(0,212,255,0.8), transparent);
+    animation: neonLoadScan 1.8s linear infinite;
+    pointer-events: none;
+    border-radius: 4px;
     }
 
     .fade-in { animation: fadeIn 0.3s ease forwards; }
@@ -855,7 +859,14 @@ function DumbbellLogo({size=50}) {
   const px = Math.round(size * 1.6);
   return (
     <div style={{position:"relative",display:"inline-flex",alignItems:"center",justifyContent:"center",overflow:"hidden",borderRadius:8,flexShrink:0}}>
-      <img src={LOGO_IMG} alt="Overload" style={{width:px,height:px,objectFit:"contain",animation:"neonPulseGlow 4s ease-in-out infinite",filter:"drop-shadow(0 0 8px rgba(0,212,255,0.8)) drop-shadow(0 0 20px rgba(0,212,255,0.4))"}}/>
+      <img src={LOGO_IMG} alt="Overload" style={{
+          width: px,
+          height: px,
+          objectFit: "contain",
+          animation: "neonPulseGlow 2s ease-in-out infinite",
+          filter: "drop-shadow(0 0 8px rgba(0,212,255,0.8)) drop-shadow(0 0 20px rgba(0,212,255,0.4)) brightness(1.05) contrast(1.1)",
+          mixBlendMode: "screen"
+      }}/>
       <div className="neon-logo-scan"/>
     </div>
   );
